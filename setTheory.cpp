@@ -88,13 +88,15 @@ int main(){
   int arr2[] = {6,9,12};
   //expected union: 1, 2, 3, 4, 5, 7
   //expected intersection: 2, 3, 5
-  Myset* answer = get_union(arr, 4, arr2, 3);
+  Myset* answer = get_union(arr, sizeof(arr)/sizeof(arr[0]), arr2, sizeof(arr2)/sizeof(arr2[0]));
+  cout<<"Union: "<<endl;
   for(int i = 0; i<answer->count; i++){ 
      cout<<answer->myList[i]<<" ";
   }
   cout<<endl;
-  Myset* intersection = get_inter(arr,4, arr2, 3);
+  cout<<"Intersection: "<<endl;
+  Myset* intersection = get_inter(arr,sizeof(arr)/sizeof(arr[0]), arr2, sizeof(arr2)/sizeof(arr2[0]));
   for(int j = 0; j<intersection->count; j++){
-    cout<<intersection->myList[j]<<" ";
+    cout<<"intersection->myList[j]<<" ";
   } 
 } 
