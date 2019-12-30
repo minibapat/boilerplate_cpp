@@ -97,6 +97,6 @@ int main(){
   cout<<"Intersection: "<<endl;
   Myset* intersection = get_inter(arr,sizeof(arr)/sizeof(arr[0]), arr2, sizeof(arr2)/sizeof(arr2[0]));
   for(int j = 0; j<intersection->count; j++){
-    cout<<"intersection->myList[j]<<" ";
+    cout<<intersection->myList[j]<<" ";
   } 
 } 
