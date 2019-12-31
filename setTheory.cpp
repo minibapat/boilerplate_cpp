@@ -1,10 +1,7 @@
 #include <iostream>
-using namespace std;
+#include "setTheory.h"
 
-struct Myset {
-  int count;
-  int* myList;
-};
+using namespace std;
 
 
 Myset* get_union(int* arr, int len1, int* arr2, int len2){
@@ -86,14 +83,16 @@ Myset* get_inter(int* arr, int len1, int* arr2, int len2){
 int main(){
   int arr[] = { 4,5,6, 9};
   int arr2[] = {6,9,12};
-  //expected union: 1, 2, 3, 4, 5, 7
-  //expected intersection: 2, 3, 5
-  Myset* answer = get_union(arr, 4, arr2, 3);
+  //expected union: 4,5,6,9,12
+  //expected intersection: 6,9
+  Myset* answer = get_union(arr, sizeof(arr)/sizeof(arr[0]), arr2, sizeof(arr2)/sizeof(arr2[0]));
+  cout<<"Union: "<<endl;
   for(int i = 0; i<answer->count; i++){ 
      cout<<answer->myList[i]<<" ";
   }
   cout<<endl;
-  Myset* intersection = get_inter(arr,4, arr2, 3);
+  cout<<"Intersection: "<<endl;
+  Myset* intersection = get_inter(arr,sizeof(arr)/sizeof(arr[0]), arr2, sizeof(arr2)/sizeof(arr2[0]));
   for(int j = 0; j<intersection->count; j++){
     cout<<intersection->myList[j]<<" ";
   } 
