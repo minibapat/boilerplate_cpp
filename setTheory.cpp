@@ -3,11 +3,6 @@
 
 using namespace std;
 
-struct CProduct{
-  int x;
-  int y;
-};
-
 Myset* get_union(int* arr, int len1, int* arr2, int len2){
   bool state = true;
   int count = 0;
