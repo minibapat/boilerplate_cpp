@@ -3,6 +3,10 @@
 
 using namespace std;
 
+struct CProduct{
+  int x;
+  int y;
+};
 
 Myset* get_union(int* arr, int len1, int* arr2, int len2){
   bool state = true;
@@ -80,11 +84,29 @@ Myset* get_inter(int* arr, int len1, int* arr2, int len2){
   return mydata; 
 }
 
+CProduct* get_cartesian(int* arr, int len1, int* arr2, int len2) {
+  CProduct* myprod = new CProduct[sizeof(CProduct) * sizeof(arr) * sizeof(arr2)];
+  int index = 0;
+  for(int i = 0; i<len1; i++){
+  	for(int j = 0; j<len2; j++){
+      myprod[index].x = arr[i];
+      myprod[index].y = arr2[j];
+      index++;
+    }
+	}
+  return myprod;
+}
+
 int main(){
   int arr[] = { 4,5,6, 9};
   int arr2[] = {6,9,12};
   //expected union: 4,5,6,9,12
   //expected intersection: 6,9
+  CProduct* prod = get_cartesian(arr, sizeof(arr)/sizeof(arr[0]), arr2, sizeof(arr2)/sizeof(arr2[0]));
+	for(int a = 0; a<12; a++){
+    cout<<"("<<prod[a].x<<","<<prod[a].y<<")";
+  }
+  cout<<endl;  
   Myset* answer = get_union(arr, sizeof(arr)/sizeof(arr[0]), arr2, sizeof(arr2)/sizeof(arr2[0]));
   cout<<"Union: "<<endl;
   for(int i = 0; i<answer->count; i++){ 
