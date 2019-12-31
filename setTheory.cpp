@@ -97,24 +97,79 @@ CProduct* get_cartesian(int* arr, int len1, int* arr2, int len2) {
   return myprod;
 }
 
+Myset* diff_of_sets(int* arr, int len1, int* arr2, int len2){
+  Myset* diff = new Myset;
+  //expected diff of A-B: 4,5
+  //expected diff of B-A: 12
+  int localarr[len1+len2];
+  int counter = 0;
+  int element = 0;
+  bool state = true;
+  for(int i = 0; i<len1; i++){
+  	for(int j = 0; j<len2; j++){
+  		if(arr[i] == arr2[j]){
+  	 		 state = false;
+ 			}
+   }
+   if(state == true){
+     element = arr[i];
+     localarr[counter] = element;
+     counter++;
+   }
+   state = true;
+	}
+  diff->myList = new int[counter];
+  for(int k = 0; k<counter; k++){
+     diff->myList[k] = localarr[k]; 
+  }
+  diff->count = counter;
+
+  return diff;
+}
+
 int main(){
   int arr[] = { 4,5,6, 9};
   int arr2[] = {6,9,12};
   //expected union: 4,5,6,9,12
   //expected intersection: 6,9
-  CProduct* prod = get_cartesian(arr, sizeof(arr)/sizeof(arr[0]), arr2, sizeof(arr2)/sizeof(arr2[0]));
-	for(int a = 0; a<12; a++){
+  int size1 = sizeof(arr)/sizeof(arr[0]);
+  int size2 = sizeof(arr2)/sizeof(arr2[0]);
+  cout<<"Set A is: ";  
+  for(int a = 0; a<size1; a++){
+    cout<<arr[a]<<" ";
+  }
+  cout<<endl;
+  cout<<"Set B is: ";
+  for(int b = 0; b<size2; b++){
+  	cout<<arr2[b]<<" ";
+  }
+  cout<<endl; 
+  CProduct* prod = get_cartesian(arr, size1, arr2, size2);
+	cout<<"The Cartesian products of the two sets are: "<<endl;
+  for(int a = 0; a<12; a++){
     cout<<"("<<prod[a].x<<","<<prod[a].y<<")";
   }
   cout<<endl;  
-  Myset* answer = get_union(arr, sizeof(arr)/sizeof(arr[0]), arr2, sizeof(arr2)/sizeof(arr2[0]));
+  Myset* get_diff = diff_of_sets(arr, size1, arr2, size2);
+  cout<<"A-B is: "<<endl;
+  for(int k = 0; k<get_diff->count; k++){
+  	cout<<get_diff->myList[k]<< " ";
+  }
+	cout<<endl;
+  get_diff = diff_of_sets(arr2, size2, arr, size1);
+  cout<<"B-A is: "<<endl;
+	for(int k = 0; k<get_diff->count; k++){
+     cout<<get_diff->myList[k]<< " ";
+	}
+	cout<<endl;
+  Myset* answer = get_union(arr, size1, arr2, size2);
   cout<<"Union: "<<endl;
   for(int i = 0; i<answer->count; i++){ 
      cout<<answer->myList[i]<<" ";
   }
   cout<<endl;
   cout<<"Intersection: "<<endl;
-  Myset* intersection = get_inter(arr,sizeof(arr)/sizeof(arr[0]), arr2, sizeof(arr2)/sizeof(arr2[0]));
+  Myset* intersection = get_inter(arr,size1, arr2, size2);
   for(int j = 0; j<intersection->count; j++){
     cout<<intersection->myList[j]<<" ";
   } 
