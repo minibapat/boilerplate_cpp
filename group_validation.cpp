@@ -4,6 +4,7 @@
 #include <vector>
 #include <set>
 
+//in map iteration, doing iterator variable -> first is the key, ->second is the value
 // g++ --std=c++2a <this-file>
 using namespace std;
 
