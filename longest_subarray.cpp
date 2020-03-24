@@ -56,6 +56,6 @@ int main(int argc, char* argv[]){
 		arr[i] = atoi(argv[i+1]);
 	}
 	int len = sizeof(arr)/sizeof(arr[0]);
-    int longest = findUnique(arr, len);
+    	int longest = findUnique(arr, len);
 	cout<<"The length of the longest subarray is "<<longest<<endl;
 }
