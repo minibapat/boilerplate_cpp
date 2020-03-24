@@ -16,9 +16,9 @@ void printMap(map<int, vector<int> > mymap){
     }
 }
 
-void findUnique(int* arr, int len) {
-    //start putting in new array values into the map, and incrementing count
-    //if the count of any key becomes greater than 1, you want to clear the map and start again
+/*This function contains a map which stores an index and a vector consisting of all unique numbers up until a repeat is reached. Sample 
+diagram can be pictured when the printMap function is called. */
+int findUnique(int* arr, int len) { 
     map< int, vector<int> > mymap;  //a map with unique subarrays and their sizes 
     for(int x = 0; x<len; x++){
         for(int i = x; i<len; i++){
@@ -40,15 +40,22 @@ void findUnique(int* arr, int len) {
             maxindex = i;
         }
     }
-    cout<<"The length of the longest subarray is "<<(maxindex->second).size()<<endl;
+    return (maxindex->second).size(); 
 
 
 }
+ 
 
-int main() {
-    //int arr[] = {5, 1, 3, 5, 2, 3, 4, 1};
-    int arr[] = {2, 4, 1, 2, 3, 4, 5, 6, 5, 6};
-    int size = sizeof(arr)/sizeof(arr[0]);
-    //int uniquearr[] = findUnique(arr, size);
-    findUnique(arr, size);
+int main(int argc, char* argv[]){
+	if(argc < 2){
+		cerr<<"Usage: "<<argv[0]<<" Enter a list of numbers separated by spaces"<<endl;
+		exit(1);
+	}
+	int arr[argc-1];
+	for(int i = 0; i<argc-1; i++){
+		arr[i] = atoi(argv[i+1]);
+	}
+	int len = sizeof(arr)/sizeof(arr[0]);
+    int longest = findUnique(arr, len);
+	cout<<"The length of the longest subarray is "<<longest<<endl;
 }
