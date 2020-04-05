@@ -25,12 +25,10 @@ class closedMap {
 };
 
 int main() {
-	static string a[] = {"anand", "rashmi", "eeshwari", "tanvi", "shrikant", "bhargav", "ajita"};
+	static string a[] = {"avenal", "costa mesa", "paso robles", "mesa verde"};
 	closedMap cm;
 	for(int jj = 0; jj<sizeof(a)/sizeof(a[0]); jj++) {
 		cm.insert(a[jj]);
 	}
-	cm.print_names();
-	cout<<cm.find("anand")<<endl;
-	cout<<cm.find("ajita")<<endl;
+	cm.print_names(); 
 }
