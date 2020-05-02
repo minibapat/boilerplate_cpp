@@ -1,5 +1,5 @@
 //Given a list of numbers and a number k, this program finds
-//whether any two numbers from the list add up to k.
+//whether any two numbers from the list add up to k
 #include <iostream>
 using namespace std;
 
