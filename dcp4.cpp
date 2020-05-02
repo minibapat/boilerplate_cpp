@@ -6,7 +6,7 @@ The input [1, 2, 0] should give 3. This is daily coding problem #4 asked by dail
 #include <iostream>
 using namespace std;
 
-int findNum(int* arr, int len);
+int findNum(int* arr, int len); 
 
 bool arrcontains(int* arr, int len, int k){
   for(int a = 0; a<len; a++){
