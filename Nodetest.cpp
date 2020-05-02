@@ -47,6 +47,6 @@ int main() {
    n2->data = 15; 
    n2->next = NULL;
    insert(head, n1);
-	insert(head, n2);
-	printList(head);
+   insert(head, n2);
+   printList(head);
 }
