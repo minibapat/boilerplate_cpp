@@ -9,13 +9,13 @@ struct Node{
 void insert(Node* head, Node* newnode) {
   Node* tmp = head;
   if(tmp->next == NULL){
-		tmp->next = newnode;
+	tmp->next = newnode;
   }
   else{
- 		while(tmp->next != NULL) {
-			tmp = tmp->next;
+    while(tmp->next != NULL) {
+	tmp = tmp->next;
     }
- 	  tmp->next = newnode;
+    tmp->next = newnode;
   }
 }
 
@@ -37,16 +37,16 @@ void printList(Node* head) {
 
 
 int main() {
-	Node* head = new Node;
-	head->data = 5;
-	head->next = NULL;
-  Node* n1 = new Node;
-  n1->data = 10;
-	n1->next = NULL;
-  Node* n2 = new Node;
-  n2->data = 15; 
-  n2->next = NULL;
-  insert(head, n1);
+   Node* head = new Node;
+   head->data = 5;
+   head->next = NULL;
+   Node* n1 = new Node;
+   n1->data = 10;
+   n1->next = NULL;
+   Node* n2 = new Node;
+   n2->data = 15; 
+   n2->next = NULL;
+   insert(head, n1);
 	insert(head, n2);
 	printList(head);
 }
