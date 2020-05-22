@@ -1,4 +1,4 @@
-//Clockangles.cpp
+//Rukmini Bapat
 //All angles calculated with the assumption of finding the smallest of the two possible angles
 //between the minute and hour hand
 
