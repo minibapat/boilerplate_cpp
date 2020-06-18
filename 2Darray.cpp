@@ -49,7 +49,7 @@ SqrMatrix operator+(const SqrMatrix& source1, const SqrMatrix& source2) {
 	int rand[N][N];
 	for(int i = 0; i<N; i++) {
 		for(int j = 0; j<N; j++) {
-					rand[i][j] = (source1.getTable())[i][j] + (source2.getTable())[i][j];
+		   rand[i][j] = (source1.getTable())[i][j] + (source2.getTable())[i][j];
 		}
 	}
 	SqrMatrix mys(rand, N);
